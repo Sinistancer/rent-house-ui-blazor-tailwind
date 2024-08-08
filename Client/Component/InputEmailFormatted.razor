@@ -1,0 +1,65 @@
+﻿@inherits InputBase<TValue>
+@typeparam TValue
+
+@inject IJSRuntime JSRuntime
+
+<input @attributes="AdditionalAttributes"
+       class="@CssClass"
+       value="@stringValue"
+       data-val-required="The value is required."
+       @ref="inputElement" />
+
+
+@code {
+    private ElementReference inputElement;
+    private string stringValue = null;
+    private string _currentValue = null;
+
+    // Sets up the initial value of the input
+    protected override void OnInitialized()
+    {
+        this.stringValue = this.Value?.ToString();
+        base.OnInitialized();
+    }
+
+    protected override bool TryParseValueFromString(string? value, out TValue? result, out string? validationErrorMessage)
+    {
+        if (BindConverter.TryConvertTo<TValue?>(value, System.Globalization.CultureInfo.InvariantCulture, out result))
+        {
+            if (string.IsNullOrWhiteSpace(value) || IsValidEmail(value))
+            {
+                validationErrorMessage = null;
+                return true;
+            }
+
+            validationErrorMessage = "The email format is not valid.";
+            return false;
+        }
+        else
+        {
+            validationErrorMessage = "Can't parse value";
+            return false;
+        }
+    }
+
+    private bool IsValidEmail(string email)
+    {
+        try
+        {
+            var addr = new System.Net.Mail.MailAddress(email);
+            return addr.Address == email;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("validateEmail", inputElement);
+        }
+    }
+}

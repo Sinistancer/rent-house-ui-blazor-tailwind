@@ -1,0 +1,160 @@
+﻿@page "/kontrak"
+@using daryon_house_ui.Client.Application
+@using daryon_house_ui.Client.Component
+@using daryon_house_ui.Shared
+@using daryon_house_ui.Client.Model
+
+@inject HttpClient Http
+@inject IJSRuntime JSRuntime
+@inject ToastService ToastService
+
+@attribute [Authorize]
+
+<PageTitle>Kontrak</PageTitle>
+
+<!-- Breadcrumb -->
+<nav class="flex px-5 py-3 text-gray-700 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700 mb-4" aria-label="Breadcrumb">
+    <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+        <li class="inline-flex items-center">
+            <a href="#" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+                <svg class="w-3 h-4 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z" clip-rule="evenodd" />
+                </svg>
+                Kontrak
+            </a>
+        </li>
+    </ol>
+</nav>
+
+<div class="h-10 rounded">
+    <button @onclick="ToggleModal" data-modal-target="crud-modal" data-modal-toggle="crud-modal" type="button" class="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        <svg class="w-3 h-3 text-white me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="2 0 20 22">
+            <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4.243a1 1 0 1 0-2 0V11H7.757a1 1 0 1 0 0 2H11v3.243a1 1 0 1 0 2 0V13h3.243a1 1 0 1 0 0-2H13V7.757Z" clip-rule="evenodd" />
+        </svg>
+        Tambah
+    </button>
+</div>
+
+<KontrakListingPage DataLists="kontrak" OnPropertySaved="UpdateList" />
+
+<div class="relative mt-2 overflow-x-auto flex justify-between items-center">
+    <PaginationComponent Page="Page" PageSize="PageSize" TotalItems="TotalItems" CurrentCount="kontrak.Count" OnPageChanged="GetListData" />
+</div>
+
+<div id="crud-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <KontrakTambahModal OnPropertyAdd="ToggleModal" OnPropertySaved="UpdateList" Kontrak="kontrakResponse" IsEdit="IsEdit" DataPenyewaDropdown="applicationUserDropdown" DataKontrakDropdown="kontrakDropdown" />
+</div>
+
+@code {
+    private List<KontrakDropdown> kontrakDropdown = new List<KontrakDropdown>();
+    private List<ApplicationUserDropdown> applicationUserDropdown = new List<ApplicationUserDropdown>();
+
+    private List<daryon_house_ui.Shared.Kontrak> kontrak = new List<daryon_house_ui.Shared.Kontrak>();
+    private int Page = 1;
+    private int PageSize = 10;
+    private int TotalItems;
+    private bool IsEdit;
+    private KontrakResponse kontrakResponse = new KontrakResponse();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetListData(Page);
+
+        //Minta Data Penyewa
+        await _executeDataPenyewa();
+
+        //Minta Data Propery
+        await _executeDataProperty();
+    }
+
+    private async Task UpdateList()
+    {
+        await GetListData(Page);
+
+        //Minta Data Penyewa
+        await _executeDataPenyewa();
+
+        //Minta Data Propery
+        await _executeDataProperty();
+
+        StateHasChanged();
+    }
+
+    private async Task ToggleModal()
+    {
+        IsEdit = false;
+        await JSRuntime.InvokeVoidAsync("toggleModal", "crud-modal");
+    }
+
+    private async Task GetListData(int newPage)
+    {
+        Page = newPage;
+        try
+        {
+            var url = $"https://localhost:7189/Tenant";
+
+            var request = new HttpRequestMessage(HttpMethod.Get, $"{url}?page={newPage}&pageSize={PageSize}");
+
+            var response = await Http.SendAsync(request);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseData = await response.Content.ReadFromJsonAsync<BaseListResponseModel<daryon_house_ui.Shared.Kontrak>>();
+                kontrak = responseData.Data;
+                TotalItems = responseData.TotalItems;
+            }
+            else
+            {
+                // Handle the case when the request was not successful
+                // You might want to log the error or handle it according to your application's logic
+            }
+        }
+        catch (Exception ex)
+        {
+            kontrak = null;
+
+            await JSRuntime.InvokeVoidAsync("hideLoadingMessage");
+        }
+    }
+
+
+    private async Task _executeDataPenyewa()
+    {
+        var urlDataPenyewa = $"https://localhost:7189/ApplicationUser/Dropdown";
+
+        var requestDataPenyewa = new HttpRequestMessage(HttpMethod.Get, $"{urlDataPenyewa}");
+
+        var responseDataPenyewa = await Http.SendAsync(requestDataPenyewa);
+
+        if (responseDataPenyewa.IsSuccessStatusCode)
+        {
+            var responseDataP = await responseDataPenyewa.Content.ReadFromJsonAsync<BaseListResponseModel<ApplicationUserDropdown>>();
+            applicationUserDropdown = responseDataP.Data;
+        }
+        else
+        {
+            // Handle the case when the request was not successful
+            // You might want to log the error or handle it according to your application's logic
+        }
+    }
+
+    private async Task _executeDataProperty()
+    {
+        var url = $"https://localhost:7189/Property/Dropdown";
+
+        var request = new HttpRequestMessage(HttpMethod.Get, $"{url}");
+
+        var response = await Http.SendAsync(request);
+
+        if (response.IsSuccessStatusCode)
+        {
+            var responseData = await response.Content.ReadFromJsonAsync<BaseListResponseModel<KontrakDropdown>>();
+            kontrakDropdown = responseData.Data;
+        }
+        else
+        {
+            // Handle the case when the request was not successful
+            // You might want to log the error or handle it according to your application's logic
+        }
+    }
+}

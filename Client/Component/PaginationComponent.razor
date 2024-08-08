@@ -1,0 +1,134 @@
+﻿@using daryon_house_ui.Client.Application
+@using daryon_house_ui.Shared
+@using System.Net
+
+@inject HttpClient Http
+
+<div class="flex flex-col items-center">
+    <!-- Help text -->
+    <span class="text-sm text-gray-700 dark:text-gray-400">
+        Showing <span class="font-semibold text-gray-900 dark:text-white">@((Page - 1) * PageSize + 1)</span> to <span class="font-semibold text-gray-900 dark:text-white">@((Page - 1) * PageSize + CurrentCount)</span> of <span class="font-semibold text-gray-900 dark:text-white">@TotalItems</span> Entries
+    </span>
+</div>
+
+<div class="flex">
+    <nav aria-label="Page navigation example">
+        <ul class="flex items-center -space-x-px h-8 text-sm">
+            <li>
+                <button class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                   @onclick="PreviousPage">
+                    <span class="sr-only">Previous</span>
+                    <svg class="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+                    </svg>
+                </button>
+            </li>
+
+            @if (TotalPages > 5 && Page > 3)
+            {
+                <li>
+                    <button @onclick="() => GoToPage(1)" class="text-gray-500 bg-white border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white flex items-center justify-center px-3 h-8 leading-tight border dark:border-gray-700">
+                        1
+                    </button>
+                </li>
+                <li>
+                    <span class="text-gray-500 bg-white border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white flex items-center justify-center px-3 h-8 leading-tight border dark:border-gray-700">
+                        ...
+                    </span>
+                </li>
+            }
+
+            @foreach (var page in GetPageNumbers())
+            {
+                var pageNumber = page;
+
+                <li>
+                    <button aria-current="page" class="@((Page == pageNumber) ? "z-10 text-blue-600 border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:bg-gray-700 dark:text-white" : "text-gray-500 bg-white border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white") flex items-center justify-center px-3 h-8 leading-tight border dark:border-gray-700"
+                       @onclick="() => GoToPage(pageNumber)">
+                        @pageNumber
+                    </button>
+                </li>
+            }
+
+            @if (TotalPages > 5 && Page < TotalPages - 2)
+            {
+                <li>
+                    <span class="text-gray-500 bg-white border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white flex items-center justify-center px-3 h-8 leading-tight border dark:border-gray-700">
+                        ...
+                    </span>
+                </li>
+                <li>
+                    <button @onclick="() => GoToPage(TotalPages)" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                        @TotalPages
+                    </button>
+                </li>
+            }
+
+            <li>
+                <button class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                   @onclick="NextPage">
+                    <span class="sr-only">Next</span>
+                    <svg class="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                    </svg>
+                </button>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+@code {
+    [Parameter] public int Page { get; set; } = 1;
+    [Parameter] public int PageSize { get; set; } = 10;
+    [Parameter] public int TotalItems { get; set; }
+    [Parameter] public int CurrentCount { get; set; }
+    [Parameter] public EventCallback<int> OnPageChanged { get; set; }
+
+    private int TotalPages => (int)Math.Ceiling((double)TotalItems / PageSize);
+    private bool HasPreviousPage => Page > 1;
+    private bool HasNextPage => Page < TotalPages;
+
+    private async Task PreviousPage()
+    {
+        if (Page > 1)
+        {
+            await OnPageChanged.InvokeAsync(Page - 1);
+        }
+    }
+
+    private async Task NextPage()
+    {
+        if (Page < TotalPages)
+        {
+            await OnPageChanged.InvokeAsync(Page + 1);
+        }
+    }
+
+    private async Task GoToPage(int pageNumber)
+    {
+        if (pageNumber >= 1 && pageNumber <= TotalPages)
+        {
+            await OnPageChanged.InvokeAsync(pageNumber);
+        }
+    }
+
+    private IEnumerable<int> GetPageNumbers()
+    {
+        int start = Math.Max(1, Page - 2);
+        int end = Math.Min(TotalPages, Page + 2);
+
+        if (end - start < 4)
+        {
+            if (start == 1)
+            {
+                end = Math.Min(start + 4, TotalPages);
+            }
+            else
+            {
+                start = Math.Max(end - 4, 1);
+            }
+        }
+
+        return Enumerable.Range(start, end - start + 1);
+    }
+}

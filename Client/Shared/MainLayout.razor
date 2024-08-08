@@ -1,0 +1,115 @@
+﻿@inherits LayoutComponentBase
+@inject IJSRuntime JSRuntime
+
+<nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+    <div class="px-3 py-3 lg:px-5 lg:pl-3">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center justify-start rtl:justify-end">
+                <button @onclick="ToggleSidebar" data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+                    <span class="sr-only">Open sidebar</span>
+                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+                    </svg>
+                </button>
+                <a href="#" class="flex ms-2 md:me-24">
+                    <img src="/daryon_house.jpg" class="h-8 me-3" alt="Daryon House Logo" />
+                    <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Daryon House</span>
+                </a>
+            </div>
+            <div class="flex items-center">
+                <LoginDisplay />
+            </div>
+        </div>
+    </div>
+</nav>
+
+<aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar" aria-hidden="true">
+    <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+        <div id="dropdown-cta" class="p-4 mt-0 rounded-lg text-gray-700 bg-gray-50 dark:bg-gray-900" role="alert">
+            <p class="text-xl font-bold dark:text-white">SERVICE/JASA</p>
+        </div>
+        <ul class="pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
+            <NavMenu />
+            <AuthorizeView>
+                <NotAuthorized>
+                    <li>
+                        <a href="bff/login" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="2 0 18 16">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3" />
+                            </svg>
+                            <span class="flex-1 ms-3 whitespace-nowrap">Sign In</span>
+                        </a>
+                    </li>
+                </NotAuthorized>
+            </AuthorizeView>
+        </ul>
+        <AuthorizeView>
+            <Authorized>
+                <ul class="pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
+                </ul>
+
+                <div id="dropdown-cta" class="p-4 mt-0 rounded-lg text-gray-700 bg-gray-50 dark:bg-gray-900" role="alert">
+                    <p class="text-xl font-bold dark:text-white">DATA MASTER</p>
+                </div>
+
+                <ul class="pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
+                    <NavMenuMaster />
+                </ul>
+
+                <div id="dropdown-cta" class="p-4 mt-6 rounded-lg bg-blue-50 dark:bg-blue-900" role="alert">
+                    <div class="p-1 flex items-center mb-3">
+                        <span class="bg-orange-100 text-orange-800 text-sm font-semibold rounded dark:bg-orange-200 dark:text-orange-900 px-4">Tata Cara Pembayaran</span>
+                    </div>
+                    <div class="mb-3 text-xxs text-blue-800 dark:text-blue-400">
+                        <ul class="list-disc pl-1">
+                            <li>Cash - datang ke rumah</li>
+                            <li>
+                                Transfer - ke
+                                <ul class="list-disc list-inside ml-5">
+                                    <li>BSI - 8852761080</li>
+                                    <li>UOB - 7313450299</li>
+                                    <li>Muamalat - 1030016385</li>
+                                    <li>Mandiri - 1310015487574</li>
+                                    <li>BCA - 8320639507</li>
+                                    <li>Jenius - 90390021661</li>
+                                    <li>Jago - 100961356120</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="text-xxs mt-4 text-blue-800 dark:text-blue-400">
+                        <ul class="list-disc space-y-1 pl-1">
+                            <li>No. Rekening an Mohammad Iqbal</li>
+                            <li>Bukti transfer kirim ke WA 08112245610</li>
+                            <li>Pembayaran paling lambat setiap tgl 15</li>
+                            <li>Pengecekan Air di mulai setiap tgl 25</li>
+                        </ul>
+                    </div>
+                </div>
+            </Authorized>
+        </AuthorizeView>
+    </div>
+</aside>
+
+<!-- Push Notification -->
+<daryon_house_ui.Client.Component.Toast />
+
+<div class="p-4 sm:ml-64">
+    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
+        @Body
+    </div>
+</div>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool isFirstRender) {
+        if (isFirstRender)
+        {
+           await JSRuntime.InvokeVoidAsync("window.initializeFlowbite");
+        }
+    }
+
+    private async Task ToggleSidebar()
+    {
+        await JSRuntime.InvokeVoidAsync("visibilityElement", "logo-sidebar");
+    }
+}

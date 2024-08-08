@@ -1,0 +1,536 @@
+[
+  //MONTH 12
+  {
+    "HouseNumber": "41-A",
+    "WaterUsedPrevMonth": "89",
+    "WaterUsedCurrentMonth": "96",
+    "Price": "7000",
+    "Month": "12",
+    "Year": "2023"
+  },
+  {
+    "HouseNumber": "41-B",
+    "WaterUsedPrevMonth": "53",
+    "WaterUsedCurrentMonth": "65",
+    "Price": "7000",
+    "Month": "12",
+    "Year": "2023"
+  },
+  {
+    "HouseNumber": "41-C",
+    "WaterUsedPrevMonth": "108",
+    "WaterUsedCurrentMonth": "115",
+    "Price": "7000",
+    "Month": "12",
+    "Year": "2023"
+  },
+  {
+    "HouseNumber": "41-D",
+    "WaterUsedPrevMonth": "125",
+    "WaterUsedCurrentMonth": "138",
+    "Price": "7000",
+    "Month": "12",
+    "Year": "2023"
+  },
+  {
+    "HouseNumber": "41-E",
+    "WaterUsedPrevMonth": "202",
+    "WaterUsedCurrentMonth": "220",
+    "Price": "7000",
+    "Month": "12",
+    "Year": "2023"
+  },
+  {
+    "HouseNumber": "41-F",
+    "WaterUsedPrevMonth": "38",
+    "WaterUsedCurrentMonth": "50",
+    "Price": "7000",
+    "Month": "12",
+    "Year": "2023"
+  },
+  {
+    "HouseNumber": "45-A",
+    "WaterUsedPrevMonth": "152",
+    "WaterUsedCurrentMonth": "172",
+    "Price": "7000",
+    "Month": "12",
+    "Year": "2023"
+  },
+  {
+    "HouseNumber": "45-B",
+    "WaterUsedPrevMonth": "301",
+    "WaterUsedCurrentMonth": "336",
+    "Price": "7000",
+    "Month": "12",
+    "Year": "2023"
+  },
+  {
+    "HouseNumber": "45-C",
+    "WaterUsedPrevMonth": "55",
+    "WaterUsedCurrentMonth": "58",
+    "Price": "7000",
+    "Month": "12",
+    "Year": "2023"
+  },
+  {
+    "HouseNumber": "45-D",
+    "WaterUsedPrevMonth": "188",
+    "WaterUsedCurrentMonth": "209",
+    "Price": "7000",
+    "Month": "12",
+    "Year": "2023"
+  },
+  {
+    "HouseNumber": "41",
+    "WaterUsedPrevMonth": "344",
+    "WaterUsedCurrentMonth": "368",
+    "Price": "7000",
+    "Month": "12",
+    "Year": "2023"
+  },
+  //MONTH 1
+  {
+    "HouseNumber": "41-A",
+    "WaterUsedPrevMonth": "96",
+    "WaterUsedCurrentMonth": "104",
+    "Price": "7000",
+    "Month": "1",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-B",
+    "WaterUsedPrevMonth": "65",
+    "WaterUsedCurrentMonth": "76",
+    "Price": "7000",
+    "Month": "1",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-C",
+    "WaterUsedPrevMonth": "115",
+    "WaterUsedCurrentMonth": "126",
+    "Price": "7000",
+    "Month": "1",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-D",
+    "WaterUsedPrevMonth": "138",
+    "WaterUsedCurrentMonth": "149",
+    "Price": "7000",
+    "Month": "1",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-E",
+    "WaterUsedPrevMonth": "220",
+    "WaterUsedCurrentMonth": "237",
+    "Price": "7000",
+    "Month": "1",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-F",
+    "WaterUsedPrevMonth": "50",
+    "WaterUsedCurrentMonth": "60",
+    "Price": "7000",
+    "Month": "1",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "45-A",
+    "WaterUsedPrevMonth": "172",
+    "WaterUsedCurrentMonth": "181",
+    "Price": "7000",
+    "Month": "1",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "45-B",
+    "WaterUsedPrevMonth": "336",
+    "WaterUsedCurrentMonth": "355",
+    "Price": "7000",
+    "Month": "1",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "45-C",
+    "WaterUsedPrevMonth": "58",
+    "WaterUsedCurrentMonth": "62",
+    "Price": "7000",
+    "Month": "1",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "45-D",
+    "WaterUsedPrevMonth": "209",
+    "WaterUsedCurrentMonth": "220",
+    "Price": "7000",
+    "Month": "1",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41",
+    "WaterUsedPrevMonth": "368",
+    "WaterUsedCurrentMonth": "389",
+    "Price": "7000",
+    "Month": "1",
+    "Year": "2024"
+  },
+  //MONTH 2
+  {
+    "HouseNumber": "41-A",
+    "WaterUsedPrevMonth": "104",
+    "WaterUsedCurrentMonth": "112",
+    "Price": "7000",
+    "Month": "2",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-B",
+    "WaterUsedPrevMonth": "76",
+    "WaterUsedCurrentMonth": "89",
+    "Price": "7000",
+    "Month": "2",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-C",
+    "WaterUsedPrevMonth": "126",
+    "WaterUsedCurrentMonth": "134",
+    "Price": "7000",
+    "Month": "2",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-D",
+    "WaterUsedPrevMonth": "149",
+    "WaterUsedCurrentMonth": "161",
+    "Price": "7000",
+    "Month": "2",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-E",
+    "WaterUsedPrevMonth": "237",
+    "WaterUsedCurrentMonth": "254",
+    "Price": "7000",
+    "Month": "2",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-F",
+    "WaterUsedPrevMonth": "60",
+    "WaterUsedCurrentMonth": "68",
+    "Price": "7000",
+    "Month": "2",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "45-A",
+    "WaterUsedPrevMonth": "181",
+    "WaterUsedCurrentMonth": "196",
+    "Price": "7000",
+    "Month": "2",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "45-B",
+    "WaterUsedPrevMonth": "355",
+    "WaterUsedCurrentMonth": "370",
+    "Price": "7000",
+    "Month": "2",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "45-C",
+    "WaterUsedPrevMonth": "62",
+    "WaterUsedCurrentMonth": "66",
+    "Price": "7000",
+    "Month": "2",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "45-D",
+    "WaterUsedPrevMonth": "220",
+    "WaterUsedCurrentMonth": "241",
+    "Price": "7000",
+    "Month": "2",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41",
+    "WaterUsedPrevMonth": "389",
+    "WaterUsedCurrentMonth": "407",
+    "Price": "7000",
+    "Month": "2",
+    "Year": "2024"
+  },
+  //MONTH 3
+  {
+    "HouseNumber": "41-A",
+    "WaterUsedPrevMonth": "112",
+    "WaterUsedCurrentMonth": "123",
+    "Price": "7000",
+    "Month": "3",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-B",
+    "WaterUsedPrevMonth": "89",
+    "WaterUsedCurrentMonth": "105",
+    "Price": "7000",
+    "Month": "3",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-C",
+    "WaterUsedPrevMonth": "134",
+    "WaterUsedCurrentMonth": "143",
+    "Price": "7000",
+    "Month": "3",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-D",
+    "WaterUsedPrevMonth": "161",
+    "WaterUsedCurrentMonth": "176",
+    "Price": "7000",
+    "Month": "3",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-E",
+    "WaterUsedPrevMonth": "254",
+    "WaterUsedCurrentMonth": "273",
+    "Price": "7000",
+    "Month": "3",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-F",
+    "WaterUsedPrevMonth": "68",
+    "WaterUsedCurrentMonth": "80",
+    "Price": "7000",
+    "Month": "3",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "45-A",
+    "WaterUsedPrevMonth": "196",
+    "WaterUsedCurrentMonth": "217",
+    "Price": "7000",
+    "Month": "3",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "45-B",
+    "WaterUsedPrevMonth": "370",
+    "WaterUsedCurrentMonth": "383",
+    "Price": "7000",
+    "Month": "3",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "45-C",
+    "WaterUsedPrevMonth": "66",
+    "WaterUsedCurrentMonth": "71",
+    "Price": "7000",
+    "Month": "3",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "45-D",
+    "WaterUsedPrevMonth": "241",
+    "WaterUsedCurrentMonth": "264",
+    "Price": "7000",
+    "Month": "3",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41",
+    "WaterUsedPrevMonth": "407",
+    "WaterUsedCurrentMonth": "407",
+    "Price": "7000",
+    "Month": "3",
+    "Year": "2024"
+  },
+  //MONTH 4
+  {
+    "HouseNumber": "41-A",
+    "WaterUsedPrevMonth": "123",
+    "WaterUsedCurrentMonth": "131",
+    "Price": "7000",
+    "Month": "4",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-B",
+    "WaterUsedPrevMonth": "105",
+    "WaterUsedCurrentMonth": "122",
+    "Price": "7000",
+    "Month": "4",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-C",
+    "WaterUsedPrevMonth": "143",
+    "WaterUsedCurrentMonth": "154",
+    "Price": "7000",
+    "Month": "4",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-D",
+    "WaterUsedPrevMonth": "176",
+    "WaterUsedCurrentMonth": "189",
+    "Price": "7000",
+    "Month": "4",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-E",
+    "WaterUsedPrevMonth": "273",
+    "WaterUsedCurrentMonth": "291",
+    "Price": "7000",
+    "Month": "4",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-F",
+    "WaterUsedPrevMonth": "80",
+    "WaterUsedCurrentMonth": "102",
+    "Price": "7000",
+    "Month": "4",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "45-A",
+    "WaterUsedPrevMonth": "217",
+    "WaterUsedCurrentMonth": "233",
+    "Price": "7000",
+    "Month": "4",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "45-B",
+    "WaterUsedPrevMonth": "383",
+    "WaterUsedCurrentMonth": "396",
+    "Price": "7000",
+    "Month": "4",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "45-C",
+    "WaterUsedPrevMonth": "71",
+    "WaterUsedCurrentMonth": "74",
+    "Price": "7000",
+    "Month": "4",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "45-D",
+    "WaterUsedPrevMonth": "264",
+    "WaterUsedCurrentMonth": "277",
+    "Price": "7000",
+    "Month": "4",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41",
+    "WaterUsedPrevMonth": "407",
+    "WaterUsedCurrentMonth": "420",
+    "Price": "7000",
+    "Month": "4",
+    "Year": "2024"
+  },
+  //MONTH 5
+  {
+    "HouseNumber": "41-A",
+    "WaterUsedPrevMonth": "131",
+    "WaterUsedCurrentMonth": "142",
+    "Price": "7000",
+    "Month": "5",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-B",
+    "WaterUsedPrevMonth": "122",
+    "WaterUsedCurrentMonth": "135",
+    "Price": "7000",
+    "Month": "5",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-C",
+    "WaterUsedPrevMonth": "154",
+    "WaterUsedCurrentMonth": "168",
+    "Price": "7000",
+    "Month": "5",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-D",
+    "WaterUsedPrevMonth": "189",
+    "WaterUsedCurrentMonth": "199",
+    "Price": "7000",
+    "Month": "5",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-E",
+    "WaterUsedPrevMonth": "291",
+    "WaterUsedCurrentMonth": "308",
+    "Price": "7000",
+    "Month": "5",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41-F",
+    "WaterUsedPrevMonth": "102",
+    "WaterUsedCurrentMonth": "115",
+    "Price": "7000",
+    "Month": "5",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "45-A",
+    "WaterUsedPrevMonth": "233",
+    "WaterUsedCurrentMonth": "247",
+    "Price": "7000",
+    "Month": "5",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "45-B",
+    "WaterUsedPrevMonth": "396",
+    "WaterUsedCurrentMonth": "410",
+    "Price": "7000",
+    "Month": "5",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "45-C",
+    "WaterUsedPrevMonth": "74",
+    "WaterUsedCurrentMonth": "80",
+    "Price": "7000",
+    "Month": "5",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "45-D",
+    "WaterUsedPrevMonth": "277",
+    "WaterUsedCurrentMonth": "292",
+    "Price": "7000",
+    "Month": "5",
+    "Year": "2024"
+  },
+  {
+    "HouseNumber": "41",
+    "WaterUsedPrevMonth": "420",
+    "WaterUsedCurrentMonth": "436",
+    "Price": "7000",
+    "Month": "5",
+    "Year": "2024"
+  }
+]
